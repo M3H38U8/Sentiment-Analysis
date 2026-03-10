@@ -4,8 +4,5 @@ scikit-learn
 tweepy
 matplotlib
 opencv-python-headless
-deepface==0.0.93
-tensorflow==2.13.0
-tf-keras
 streamlit-webrtc
 av
