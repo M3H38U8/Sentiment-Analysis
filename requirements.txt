@@ -1,8 +1,0 @@
-streamlit
-nltk
-scikit-learn
-tweepy
-matplotlib
-opencv-python-headless
-streamlit-webrtc
-av
