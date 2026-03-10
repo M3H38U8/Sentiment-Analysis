@@ -427,12 +427,11 @@ def main():
                 st.warning("Please enter some text to analyse.")
 
     # ── Tab 3: Face Sentiment ──────────────────────────────────────────────────
-    with tab3:
-    if not DEEPFACE_AVAILABLE:
-        st.info("📷 Real-time face sentiment requires running the app locally with DeepFace installed.")
-        st.stop()
-        
-    with tab3:
+     with tab3:
+        if not DEEPFACE_AVAILABLE:
+            st.info("📷 Real-time face sentiment requires running the app locally with DeepFace installed.")
+            st.stop()
+            
         st.header("📷 Real-Time Face Sentiment Analysis")
 
         st.markdown("""
@@ -550,3 +549,4 @@ if __name__ == "__main__":
     show_setup_instructions()
 
     main()
+
