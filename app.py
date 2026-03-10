@@ -8,11 +8,7 @@ import tweepy
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
-try:
-    from deepface import DeepFace
-    DEEPFACE_AVAILABLE = True
-except ImportError:
-    DEEPFACE_AVAILABLE = False
+from deepface import DeepFace
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase, RTCConfiguration
 import av
 import threading
@@ -428,12 +424,6 @@ def main():
 
     # ── Tab 3: Face Sentiment ──────────────────────────────────────────────────
     with tab3:
-    if not DEEPFACE_AVAILABLE:
-        st.warning("DeepFace is not available (requires TensorFlow).")
-    else:
-        # your deepface code here
-        pass
-            
         st.header("📷 Real-Time Face Sentiment Analysis")
 
         st.markdown("""
@@ -549,7 +539,4 @@ def show_setup_instructions():
 
 if __name__ == "__main__":
     show_setup_instructions()
-
     main()
-
-
