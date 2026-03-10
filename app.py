@@ -8,7 +8,11 @@ import tweepy
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
-from deepface import DeepFace
+try:
+    from deepface import DeepFace
+    DEEPFACE_AVAILABLE = True
+except ImportError:
+    DEEPFACE_AVAILABLE = False
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase, RTCConfiguration
 import av
 import threading
@@ -424,6 +428,11 @@ def main():
 
     # ── Tab 3: Face Sentiment ──────────────────────────────────────────────────
     with tab3:
+    if not DEEPFACE_AVAILABLE:
+        st.info("📷 Real-time face sentiment requires running the app locally with DeepFace installed.")
+        st.stop()
+        
+    with tab3:
         st.header("📷 Real-Time Face Sentiment Analysis")
 
         st.markdown("""
@@ -539,4 +548,5 @@ def show_setup_instructions():
 
 if __name__ == "__main__":
     show_setup_instructions()
+
     main()
